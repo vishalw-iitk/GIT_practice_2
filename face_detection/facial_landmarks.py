@@ -11,9 +11,7 @@ def bbox_pred(detections, dat_file):
     """ Predicted the shape of the face as a box and changed the box size too.
 
     Args:
-        detections: it is the face detected using MTCNN model.
-        dat_file: used to get the 68 facial landmarks on the detected face.
-        dlib_file: used to show rectangular bounding box on the detected face.
+        why such argumentsngular bounding box on the detected face.
 
     Return:
         rect: it returns the parameters of the predicted rectangle box of face.
@@ -68,3 +66,7 @@ if __name__ == "__main__":
     dataset = 'Data_100'
     dat = 'gs://qommunicator/CMLE_Pipeline/shape_predictor_68_face_landmarks.dat'
     face_detection(dataset, MTCNN(), dat).to_csv(r'Labels.csv')
+
+
+
+new addition of the line
