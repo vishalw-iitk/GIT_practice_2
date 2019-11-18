@@ -9,7 +9,7 @@ import logging
 import gcsfs 
 import tensorflow as tf
 from tensorflow.python.keras.preprocessing.image import load_img
-from apache_beam.options.pipeline_options import PipelineOptions
+from conflict import con
 from apache_beam.options.pipeline_options import SetupOptions
 from apache_beam.io import tfrecordio
 import apache_beam as beam
@@ -26,15 +26,9 @@ def get_args():
     return parser.parse_known_args()
  
 
+fifo first in firstout
 
-
-
-class LoadImageDoFn(beam.DoFn):
-
-    def __init__(self,data_csv):
-        self.data_csv = pd.read_csv(data_csv)
-
-
+this is the process
     def process(self, text_line):
         print(text_line)
         print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
@@ -79,17 +73,7 @@ class PreprocessImagesDoFn(beam.DoFn):
             detected_face = face_landmarks.detect(image)
             hright,hleft,hcen = hand_centre.detect(image)
             detected_face = cv2.cvtColor(detected_face, cv2.COLOR_BGR2GRAY)
-            hright = cv2.cvtColor(hright, cv2.COLOR_BGR2GRAY)
-            hleft = cv2.cvtColor(hleft, cv2.COLOR_BGR2GRAY)
-            hcen = cv2.cvtColor(hcen, cv2.COLOR_BGR2GRAY)
-            print(detected_face.shape,hright.shape,hleft.shape,hcen.shape)
-            stack = np.dstack((detected_face,hright,hleft,hcen)) 
-            stack = np.asarray(stack)
-            stack = stack/255
-            images[i] = stack
-        yield (images,label)
-
-       
+    
 
 class ImageToTfExampleDoFn(beam.DoFn):
 
@@ -104,8 +88,6 @@ class ImageToTfExampleDoFn(beam.DoFn):
     def _bytes_feature(value):
         return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
-    def process(self,image_label_tuple):
-        images, label = image_label_tuple
         feature = {}
         g_labels = label.astype(np.float32)
         feature['label'] = self._bytes_feature(g_labels.tostring())
