@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 import numpy as np
 import cv2
 123
-class TFRecordExtractor123:
+class TFRecordExtractor123:##added the line
     def __init__(self, tfrecord_file):123
         self.tfrecord_file = os.path.abspath(tfrecord_file)
         print("#######",self.tfrecord_file)
@@ -21,7 +21,7 @@ class TFRecordExtractor123:
         leng = sample['len']
         #leng = tf.decode_raw(sample['len'], tf.string)
         #leng = tf.reshape(leng, [1])
-
+##added new line
 
         features = {
             '0': tf.FixedLenFeature([], tf.string),

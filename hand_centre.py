@@ -2,8 +2,8 @@ from hand_util.utils import detector_utils as detector_utils
 from cv2 import cv2
 import tensorflow as tf
 import numpy as np
-
-detection_graph, sess = detector_utils.load_inference_graph()
+##added the line
+detection_graph,new line sess = detector_utils.load_inference_graph()
 num_hands_detect = 2
 score_thresh = 0.35
 12345
