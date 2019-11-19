@@ -2,12 +2,15 @@ from hand_util.utils import detector_utils as detector_utils
 from cv2 import cv2
 import tensorflow as tf
 import numpy as np
-
-detection_graph, sess = detector_utils.load_inference_graph()
+##added the line
+detection_graph,new line sess = detector_utils.load_inference_graph()
 num_hands_detect = 2
 score_thresh = 0.35
-
-def detect(image):12345678
+12345
+355
+5egrg
+dgrv
+def detect(image):123
     blank_image = np.zeros((260,210,3), np.uint8)
     im_height,im_width = image.shape[:2]
     boxes, scores = detector_utils.detect_objects(image,detection_graph, sess)
