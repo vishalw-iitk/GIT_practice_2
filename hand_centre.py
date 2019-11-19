@@ -7,7 +7,7 @@ detection_graph, sess = detector_utils.load_inference_graph()
 num_hands_detect = 2
 score_thresh = 0.35
 
-def detect(image):
+def detect(image):12345678
     blank_image = np.zeros((260,210,3), np.uint8)
     im_height,im_width = image.shape[:2]
     boxes, scores = detector_utils.detect_objects(image,detection_graph, sess)
