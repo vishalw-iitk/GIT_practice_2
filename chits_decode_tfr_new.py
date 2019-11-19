@@ -6,9 +6,9 @@ import shutil
 import matplotlib.image as mpimg
 import numpy as np
 import cv2
-
-class TFRecordExtractor:
-    def __init__(self, tfrecord_file):
+123
+class TFRecordExtractor123:
+    def __init__(self, tfrecord_file):123
         self.tfrecord_file = os.path.abspath(tfrecord_file)
         print("#######",self.tfrecord_file)
 
