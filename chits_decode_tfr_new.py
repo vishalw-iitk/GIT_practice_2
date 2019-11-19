@@ -7,7 +7,7 @@ import matplotlib.image as mpimg
 import numpy as np
 import cv2
 
-class TFRecordExtractors:
+class TFRecordExtractor:
     def __init__(self, tfrecord_file):
         self.tfrecord_file = os.path.abspath(tfrecord_file)
         print("#######",self.tfrecord_file)
